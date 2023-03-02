@@ -1,0 +1,57 @@
+
+<div class="row justify-content-center">
+  <div class="col-9 m-5">
+    <div class="text-center m-1 w-100">
+      <a routerLink="/driver" class=" btn  text-muted fw-bold margin-right bg-success "><span class="text-white">Create New</span></a>
+    </div>
+    <table class="table table-responsive">
+
+ <thead class="success-color">
+    <tr>
+      <td class="text-center">
+        First Name
+      </td>
+      <td class="text-center">
+        Last Name
+      </td>
+      <td class="text-center">
+        PhoneNumber
+      </td>
+      <td class="text-center">
+        Email
+      </td>
+      <td class="text-center">
+        #
+      </td>
+      <td class="text-center">
+        #
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of drivers">
+      <td class="text-center">
+        {{item?.firstname}}
+      </td>
+      <td class="text-center">
+        {{item?.lastname}}
+      </td>
+    
+      <td class="text-center">
+        {{item?.phonenumber}}
+      </td>
+      <td class="text-center">
+        {{item?.username}}
+      </td>
+      <td class="text-center">
+        <a [routerLink]="['../driver',item?.id]" class=" btn  text-muted fw-bold margin-right bg-success "><span class="text-white">Update</span></a>
+      </td>
+      <td class="text-center">
+        <button class=" btn  text-muted fw-bold margin-right bg-danger " (click)="Delete(item?.id)"><span class="text-white">Delete</span></button>
+      </td>
+    </tr>
+ 
+  </tbody>
+</table>
+</div>
+</div> 

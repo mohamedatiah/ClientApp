@@ -1,0 +1,48 @@
+<form [formGroup]="driverForm" (ngSubmit)="create()">
+  <div class="containr my-5 text-center">
+    <div class="groub p-5 w-75 m-auto">
+        <h1>New Driver</h1>
+        <input type="text" formControlName="firstname" [ngModel]="Currentdriver?.firstname"
+         class="form-control bg-transparent my-3 "
+          placeholder="Enter your First Name" 
+          [ngClass]="{'border-color-red':driverForm.get('firstname')?.invalid && driverForm.get('firstname')?.touched}"
+          >
+        <input type="text" formControlName="lastname" [ngModel]="Currentdriver?.lastname"
+         class="form-control bg-transparent my-3 " placeholder="Enter your Last Name">
+
+        <input type="text" class="form-control bg-transparent my-3 " placeholder="Enter your Phone"
+        formControlName="phonenumber" [ngModel]="Currentdriver?.phonenumber"
+        [ngClass]="{'border-color-red':driverForm.get('phonenumber')?.invalid
+         && driverForm.get('phonenumber')?.touched}"
+
+        >
+        <div class="d-flex m-3">
+          <span class="row success-color"
+          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
+          &&driverForm.get('phonenumber')?.hasError('pattern')&&driverForm.get('phonenumber')?.touched }"
+          >* Numbers Only</span>
+         </div>
+        <div class="d-flex m-3">
+          <span class="row success-color"
+          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
+          &&driverForm.get('phonenumber')?.hasError('minlength')&&driverForm.get('phonenumber')?.touched }"
+          >* min length 8 Number</span>
+         </div>
+         <div class="d-flex m-3">
+          <span class="row success-color"
+          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
+          &&driverForm.get('phonenumber')?.hasError('maxlength')&&driverForm.get('phonenumber')?.touched }"
+                >* max length 11 Number</span>
+         </div>
+         
+         <input type="email" formControlName="username" [ngModel]="Currentdriver?.username"
+         class="form-control bg-transparent my-3 " placeholder="Enter your email"
+         [ngClass]="{'border-color-red':driverForm.get('username')?.invalid && driverForm.get('username')?.touched}"
+
+         >
+        <button *ngIf="!Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Create 98449410</button>
+        <button *ngIf="Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Update 98449410</button>
+
+    </div>
+  </div>
+</form>

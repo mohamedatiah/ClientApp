@@ -1,0 +1,7 @@
+<div class=" d-flex  py-3 headercolor">
+  <a class="btn btn-outline-none text-muted fw-bold " routerLink="/drivers"><h4 class="text-white fs-5 margin-left">Drivers</h4></a>
+
+  <a *ngIf="IsLoggedIn"  class="btn btn-outline-warning text-muted fw-bold margin-right " (click)="logout()">Logout</a>
+  <a *ngIf="!IsLoggedIn" class="btn btn-outline-warning text-muted fw-bold margin-right " (click)="login()">Logout</a>
+
+</div>

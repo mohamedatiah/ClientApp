@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <div class="containr my-5 text-center">
+    <div class="groub p-5 w-75 m-auto">
+        <h1>Driver Login</h1>
+        <input type="email" class="form-control bg-transparent my-3 " 
+        [ngClass]="{'border-color-red':loginForm.invalid&&loginForm.get('username')?.invalid
+         && loginForm.get('username')?.touched}"
+
+        placeholder="Enter your email" formControlName="username">
+        <input type="password" class="form-control bg-transparent my-3" 
+        [ngClass]="{'border-color-red':loginForm.invalid&&loginForm.get('password')?.invalid 
+        && loginForm.get('password')?.touched}"
+
+        placeholder="Enter your password" formControlName="password">
+        <button type="submit" class="btn btn-outline-info w-100 my-3">Sign In</button>
+        <p class=" mt-2">Don't have an account ? 
+          <a   routerLink="/register" routerLinkActive="active" class="text-decoration-none" role="button"> SignUp</a></p>
+    </div>
+  </div>
+</form>

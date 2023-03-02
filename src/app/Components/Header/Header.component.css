@@ -1,0 +1,18 @@
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: none;
+}
+.btn:hover{
+    color: #fff !important;
+}
+.margin-right{
+  margin-left: auto;
+  margin-right: 30px;
+}
+.margin-left{
+  margin-left: 30px;
+}
+  .headercolor{
+    background-color: #17a2b8;
+  }
+
