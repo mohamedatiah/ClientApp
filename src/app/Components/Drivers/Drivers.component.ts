@@ -38,7 +38,11 @@ export class DriversComponent implements OnInit {
             'Your file has been deleted.',
             'success'
           )
-          window.location.reload();
+          this.driver.getAll().subscribe(a=>{
+            console.log(a);
+            
+          this.drivers=a.result;
+         });
 
         }else{
           Swal.fire(
