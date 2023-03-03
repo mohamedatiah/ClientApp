@@ -35,7 +35,7 @@ export class DriversComponent implements OnInit {
         if(a.statusCode==200){
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Record has been deleted.',
             'success'
           )
           this.driver.getAll().subscribe(a=>{
