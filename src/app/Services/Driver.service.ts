@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { environment } from '../environments/environments';
+import { environment } from 'src/environments/environments';
 import { Driver } from '../Models/Driver';
 
 @Injectable(
@@ -16,53 +16,56 @@ export class DriverService {
      constructor(private http:HttpClient) { }
     
 getAll(){
-    let request = `${this.apiUrl}/driver/getall`;
+  let request = `${this.apiUrl}Drivers`;
     return this.http
       .get(request)
       .pipe(
         map((data:any) => {
-          if (data && data.status==200&&data.data) {
+          
             return data;
-          }
+          
         })
       );
 }
 getById(id:any){
-    let request = `${this.apiUrl}/driver/getById?id=`+id;
+  let request = `${this.apiUrl}Drivers/${id}`;
     return this.http
       .get(request)
       .pipe(
         map((data:any) => {
-          if (data && data.status==200&&data.data) {
+         
             return data;
-          }
+          
         })
       );}
 create(driver:any){
-    let request = `${this.apiUrl}/driver/create`;
+  let request = `${this.apiUrl}Drivers`;
     return this.http
       .post(request,driver)
       .pipe(
         map((data:any) => {
-          if (data && data.status==200) {
-            return true;
-          }else{
-            return false;
-          }
+          return data;
         })
       ); 
 }
-update(driver:any){
-  let request = `${this.apiUrl}/driver/update`;
+update(driver:any,id:any){
+  let request = `${this.apiUrl}Drivers/${id}`;
+  driver.id=id;
   return this.http
-    .post(request,driver)
+    .put(request,driver)
     .pipe(
       map((data:any) => {
-        if (data && data.status==200) {
-          return true;
-        }else{
-          return false;
-        }
+        return data;
+      })
+    ); 
+}
+delete(id:any){
+  let request = `${this.apiUrl}Drivers/${id}`;
+  return this.http
+    .delete(request)
+    .pipe(
+      map((data:any) => {
+        return data;
       })
     ); 
 }

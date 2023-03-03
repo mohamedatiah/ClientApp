@@ -13,7 +13,9 @@ export class DriversComponent implements OnInit {
   drivers?: Driver[]=[];
   constructor(private auth:AuthService,private driver:DriverService) {
     this.driver.getAll().subscribe(a=>{
-    this.drivers=a;
+      console.log(a);
+      
+    this.drivers=a.result;
    });
    }
    Delete(id:any){
@@ -27,12 +29,26 @@ export class DriversComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        //delete then confirm
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
+       this.driver.delete(id).subscribe(a=>{
+        console.log(a);
+        
+        if(a.statusCode==200){
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          window.location.reload();
+
+        }else{
+          Swal.fire(
+            'Error!',
+            'Something went wrong.',
+            'error'
+          )
+        }
+       })
+
       }
     })
   }

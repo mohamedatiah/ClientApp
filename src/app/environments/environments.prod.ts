@@ -1,2 +1,0 @@
-export class environments.prod {
-}

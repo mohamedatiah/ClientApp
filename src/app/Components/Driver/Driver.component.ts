@@ -16,15 +16,15 @@ export class DriverComponent implements OnInit {
   IsNew:boolean=true;
   Currentdriver:Driver=new Driver();
   driverForm = new FormGroup({
-    username: new FormControl('', {
+    email: new FormControl('', {
       validators: [Validators.required],
     }),
-    firstname: new FormControl('', {
+    firstName: new FormControl('', {
       validators: [Validators.required],
     }),   
-     lastname: new FormControl('',{}),
+     lastName: new FormControl('',{}),
      
-    phonenumber: new FormControl('', {
+    phoneNumber: new FormControl('', {
       validators: [Validators.required,Validators.minLength(8),Validators.maxLength(11),         
          Validators.pattern('^(0|[1-9][0-9]*)$')
     ],
@@ -38,7 +38,9 @@ export class DriverComponent implements OnInit {
       if(this.id){
         console.log(this.id);
         driver.getById(this.id).subscribe(a=>{
-          let d=a as Driver;
+          console.log(a);
+          
+          let d=a.result;
          this.Currentdriver=d;
         })
        this.IsNew=false;
@@ -56,11 +58,18 @@ export class DriverComponent implements OnInit {
       this.driverForm.markAllAsTouched();
     }else{
         if(this.Currentdriver.id){
-          this.driver.update(this.driverForm.value).subscribe(a=>{
-            if(a){
+          this.driver.update(this.driverForm.value,this.id).subscribe(a=>{
+            if(a.statusCode==200){
              this.router.navigate(['/drivers']);
    
-            }else{
+            }else if(a.statusCode==400){
+              Swal.fire(
+                'Warning!',
+                a.errorMessages[0],
+                'warning'
+              )
+            }
+            else{
              Swal.fire(
                'Error!',
                'Something went wrong.',
@@ -69,11 +78,16 @@ export class DriverComponent implements OnInit {
             }
          });
         }else{
-          this.driver.create(this.driverForm.value).subscribe(a=>{
-            if(a){
-             this.router.navigate(['/drivers']);
-   
-            }else{
+          this.driver.create(this.driverForm.value).subscribe(data=>{
+            if (data && data.statusCode==200) {
+              this.router.navigate(['/drivers']);
+            }else if(data.statusCode==400){
+              Swal.fire(
+                'Warning!',
+                data.errorMessages[0],
+                'warning'
+              )
+            } else{
              Swal.fire(
                'Error!',
                'Something went wrong.',

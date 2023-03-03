@@ -15,7 +15,7 @@
         Last Name
       </td>
       <td class="text-center">
-        PhoneNumber
+        phoneNumber
       </td>
       <td class="text-center">
         Email
@@ -31,17 +31,17 @@
   <tbody>
     <tr *ngFor="let item of drivers">
       <td class="text-center">
-        {{item?.firstname}}
+        {{item?.firstName}}
       </td>
       <td class="text-center">
-        {{item?.lastname}}
+        {{item?.lastName}}
       </td>
     
       <td class="text-center">
-        {{item?.phonenumber}}
+        {{item?.phoneNumber}}
       </td>
       <td class="text-center">
-        {{item?.username}}
+        {{item?.email}}
       </td>
       <td class="text-center">
         <a [routerLink]="['../driver',item?.id]" class=" btn  text-muted fw-bold margin-right bg-success "><span class="text-white">Update</span></a>

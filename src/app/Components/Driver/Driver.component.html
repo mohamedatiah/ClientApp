@@ -2,46 +2,46 @@
   <div class="containr my-5 text-center">
     <div class="groub p-5 w-75 m-auto">
         <h1>New Driver</h1>
-        <input type="text" formControlName="firstname" [ngModel]="Currentdriver?.firstname"
+        <input type="text" formControlName="firstName" [ngModel]="Currentdriver?.firstName"
          class="form-control bg-transparent my-3 "
           placeholder="Enter your First Name" 
-          [ngClass]="{'border-color-red':driverForm.get('firstname')?.invalid && driverForm.get('firstname')?.touched}"
+          [ngClass]="{'border-color-red':driverForm.get('firstName')?.invalid && driverForm.get('firstName')?.touched}"
           >
-        <input type="text" formControlName="lastname" [ngModel]="Currentdriver?.lastname"
+        <input type="text" formControlName="lastName" [ngModel]="Currentdriver?.lastName"
          class="form-control bg-transparent my-3 " placeholder="Enter your Last Name">
 
         <input type="text" class="form-control bg-transparent my-3 " placeholder="Enter your Phone"
-        formControlName="phonenumber" [ngModel]="Currentdriver?.phonenumber"
-        [ngClass]="{'border-color-red':driverForm.get('phonenumber')?.invalid
-         && driverForm.get('phonenumber')?.touched}"
+        formControlName="phoneNumber" [ngModel]="Currentdriver?.phoneNumber"
+        [ngClass]="{'border-color-red':driverForm.get('phoneNumber')?.invalid
+         && driverForm.get('phoneNumber')?.touched}"
 
         >
         <div class="d-flex m-3">
           <span class="row success-color"
-          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
-          &&driverForm.get('phonenumber')?.hasError('pattern')&&driverForm.get('phonenumber')?.touched }"
+          [ngClass]="{'color-red':driverForm.get('phoneNumber')?.invalid
+          &&driverForm.get('phoneNumber')?.hasError('pattern')&&driverForm.get('phoneNumber')?.touched }"
           >* Numbers Only</span>
          </div>
         <div class="d-flex m-3">
           <span class="row success-color"
-          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
-          &&driverForm.get('phonenumber')?.hasError('minlength')&&driverForm.get('phonenumber')?.touched }"
+          [ngClass]="{'color-red':driverForm.get('phoneNumber')?.invalid
+          &&driverForm.get('phoneNumber')?.hasError('minlength')&&driverForm.get('phoneNumber')?.touched }"
           >* min length 8 Number</span>
          </div>
          <div class="d-flex m-3">
           <span class="row success-color"
-          [ngClass]="{'color-red':driverForm.get('phonenumber')?.invalid
-          &&driverForm.get('phonenumber')?.hasError('maxlength')&&driverForm.get('phonenumber')?.touched }"
+          [ngClass]="{'color-red':driverForm.get('phoneNumber')?.invalid
+          &&driverForm.get('phoneNumber')?.hasError('maxlength')&&driverForm.get('phoneNumber')?.touched }"
                 >* max length 11 Number</span>
          </div>
          
-         <input type="email" formControlName="username" [ngModel]="Currentdriver?.username"
+         <input type="email" formControlName="email" [ngModel]="Currentdriver?.email"
          class="form-control bg-transparent my-3 " placeholder="Enter your email"
-         [ngClass]="{'border-color-red':driverForm.get('username')?.invalid && driverForm.get('username')?.touched}"
+         [ngClass]="{'border-color-red':driverForm.get('email')?.invalid && driverForm.get('email')?.touched}"
 
          >
-        <button *ngIf="!Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Create 98449410</button>
-        <button *ngIf="Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Update 98449410</button>
+        <button *ngIf="!Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Create</button>
+        <button *ngIf="Currentdriver?.id" type="submit" class="btn btn-outline-info w-100 my-3"> Update</button>
 
     </div>
   </div>

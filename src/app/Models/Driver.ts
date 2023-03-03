@@ -1,9 +1,10 @@
 export class Driver {
     id?:string;
-    firstname?:string;
-    lastname?:string;
-    phonenumber?:string;
-    username?:string;
+    firstName?:string;
+    lastName?:string;
+    phoneNumber?:string;
+    email?:string;
+
     password?:string;
 
 }

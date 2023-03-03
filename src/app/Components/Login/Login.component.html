@@ -3,10 +3,10 @@
     <div class="groub p-5 w-75 m-auto">
         <h1>Driver Login</h1>
         <input type="email" class="form-control bg-transparent my-3 " 
-        [ngClass]="{'border-color-red':loginForm.invalid&&loginForm.get('username')?.invalid
-         && loginForm.get('username')?.touched}"
+        [ngClass]="{'border-color-red':loginForm.invalid&&loginForm.get('email')?.invalid
+         && loginForm.get('email')?.touched}"
 
-        placeholder="Enter your email" formControlName="username">
+        placeholder="Enter your email" formControlName="email">
         <input type="password" class="form-control bg-transparent my-3" 
         [ngClass]="{'border-color-red':loginForm.invalid&&loginForm.get('password')?.invalid 
         && loginForm.get('password')?.touched}"

@@ -2,35 +2,42 @@
   <div class="containr my-5 text-center">
     <div class="groub p-5 w-75 m-auto">
         <h1>Driver Register</h1>
-        <input type="text" formControlName="firstname"
+        <input type="text" formControlName="firstName"
          class="form-control bg-transparent my-3 "
           placeholder="Enter your First Name" 
-          [ngClass]="{'border-color-red':registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched}"
+          [ngClass]="{'border-color-red':registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched}"
           >
-        <input type="text" formControlName="lastname"
+        <input type="text" formControlName="lastName"
          class="form-control bg-transparent my-3 " placeholder="Enter your Last Name">
 
-        <input type="text" class="form-control bg-transparent my-3 " placeholder="Enter your Phone"
-        formControlName="phonenumber"
-        [ngClass]="{'border-color-red':registerForm.get('phonenumber')?.invalid
-         && registerForm.get('phonenumber')?.touched}"
-
-        >
-        <div class="d-flex m-3">
-          <span class="row success-color"
-          [ngClass]="{'color-red':registerForm.get('phonenumber')?.invalid
-          &&registerForm.get('phonenumber')?.hasError('minlength')&&registerForm.get('phonenumber')?.touched }"
-          >* min length 8 character</span>
-         </div>
+         <input type="text" class="form-control bg-transparent my-3 " placeholder="Enter your Phone"
+         formControlName="phoneNumber"
+         [ngClass]="{'border-color-red':registerForm.get('phoneNumber')?.invalid
+          && registerForm.get('phoneNumber')?.touched}"
+ 
+         >
          <div class="d-flex m-3">
-          <span class="row success-color"
-          [ngClass]="{'color-red':registerForm.get('phonenumber')?.invalid
-          &&registerForm.get('phonenumber')?.hasError('maxlength')&&registerForm.get('phonenumber')?.touched }"
-                >* max length 11 character</span>
-         </div>
-        <input type="email" formControlName="username"
+           <span class="row success-color"
+           [ngClass]="{'color-red':registerForm.get('phoneNumber')?.invalid
+           &&registerForm.get('phoneNumber')?.hasError('pattern')&&registerForm.get('phoneNumber')?.touched }"
+           >* Numbers Only</span>
+          </div>
+         <div class="d-flex m-3">
+           <span class="row success-color"
+           [ngClass]="{'color-red':registerForm.get('phoneNumber')?.invalid
+           &&registerForm.get('phoneNumber')?.hasError('minlength')&&registerForm.get('phoneNumber')?.touched }"
+           >* min length 8 Number</span>
+          </div>
+          <div class="d-flex m-3">
+           <span class="row success-color"
+           [ngClass]="{'color-red':registerForm.get('phoneNumber')?.invalid
+           &&registerForm.get('phoneNumber')?.hasError('maxlength')&&registerForm.get('phoneNumber')?.touched }"
+                 >* max length 11 Number</span>
+          </div>
+         
+        <input type="email" formControlName="email"
          class="form-control bg-transparent my-3 " placeholder="Enter your email"
-         [ngClass]="{'border-color-red':registerForm.get('username')?.invalid && registerForm.get('username')?.touched}"
+         [ngClass]="{'border-color-red':registerForm.get('email')?.invalid && registerForm.get('email')?.touched}"
 
          >
         <input type="password" formControlName="password"

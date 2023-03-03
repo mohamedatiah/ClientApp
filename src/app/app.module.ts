@@ -13,11 +13,12 @@ import { LoginComponent } from './Components/Login/Login.component';
 import { RegisterComponent } from './Components/Register/Register.component';
 import { InterceptorInterceptor } from './Interceptor/interceptor.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,RegisterComponent,LoginComponent,DriverComponent,DriversComponent
+    AppComponent,HeaderComponent,RegisterComponent,LoginComponent,DriverComponent,DriversComponent,SpinnerComponent
   ],
   imports: [
     BrowserModule,  NgbModule,HttpClientModule,
